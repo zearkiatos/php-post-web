@@ -10,10 +10,12 @@ class PostUnitTest extends TestCase
     {
         $post = new Post();
         $comment = new Comment();
+        $comment->setComment("Lorem Ipsum");
 
         $post->addComment($comment);
 
         $this->assertEquals(1, $post->countComments());
         $this->assertInstanceOf(Comment::class, $post->getComments()[0]);
+        $this->assertEquals("Lorem Ipsum", $post->getComments()[0]->getComment());
     }
 }
